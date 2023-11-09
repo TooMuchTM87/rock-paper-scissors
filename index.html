@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Scissors</title>
+</head>
+<body>
+    <h1>Rock, Paper, Scissors</h1>
+    <p>How to Play</p>
+    <p>Refresh the Page and the game will pop up</p>
+    <p> then type rock, paper or scissors</p>
+    <button>Press for goodluck!</button>
+<script>
+    function game() {
+
+        function play() {
+         let playerInput = window.prompt("rock, paper, scissors.");
+          return playerInput = playerInput.toLowerCase().trim();
+        }
+    
+        let playerSelection = play();
+
+        let computerSelection = getComputerChoice();
+
+        function playRound(playerSelection, computerSelection) {
+            if (playerSelection === "rock" && computerSelection === "paper") {
+                 alert("you lose");
+                 return result = "lose";
+            }else if (playerSelection === "paper" && computerSelection === "scissors") {
+                 alert("you lose");
+                 return result = "lose";
+            }else if (playerSelection === "scissors" && computerSelection === "rock") {
+                 alert("you lose");
+                 return result = "lose";
+            }else if (playerSelection === computerSelection) {
+                 alert("its a tie");
+                 return result = "tie";
+            }else  if (playerSelection === "rock" && computerSelection === "scissors") {
+                 alert("you win");
+                 return result = "win";
+            }else if (playerSelection === "paper" && computerSelection === "rock") {
+                 alert("you win");
+                 return result = "win";
+            }else if (playerSelection === "scissors" && computerSelection === "paper") {
+                 alert("you win");
+                 return result = "win";
+            }else {
+                 alert("invalid answer");
+                 return console.log(playRound(play(), computerSelection));
+            }
+        }
+
+        function getComputerChoice() {
+            let option = Math.floor(Math.random() * 100);
+            if (option <= 33) {
+                return getComputerChoice = "rock";
+            }else if (option >= 34 && option <= 67) {
+                return getComputerChoice = "paper";
+            }else {
+                return getComputerChoice = "scissors";
+            }
+        }
+
+        function scoreCalc() {
+            if (result === "win") {
+                return playerWin++;
+            } else if (result === "lose") {
+                return computerWin++;
+            } else {
+                return tie++;
+            }
+        }
+
+        console.log(playerSelection, computerSelection);
+        console.log(playRound(playerSelection, computerSelection));
+        console.log(scoreCalc());
+        console.log("Player Win(s):" + playerWin, "Computer Win(s):" + computerWin,"Tie(s):" + tie);
+    }
+
+    let result = " "; 
+    let playerWin = 0;
+    let computerWin = 0;
+    let tie = 0; 
+
+    function overallWinner() {
+        if (playerWin > computerWin) {
+            return alert(`You are the champ you've won ${playerWin} rounds!`);
+        } else if (playerWin < computerWin) {
+            return alert(`you lost ${computerWin} rounds`);
+        } else {
+            return alert("it's a tie");
+        }
+    }
+
+    function playFiveRounds() {
+        console.log(game());
+        console.log(game());
+        console.log(game());
+        console.log(game());
+        console.log(game());
+    }
+    
+    console.log(playFiveRounds());
+    console.log(overallWinner());
+    console.log("Player Win(s):" + playerWin, "Computer Win(s):" + computerWin,"Tie(s):" + tie);
+
+</script>
+</body>
+</html>
