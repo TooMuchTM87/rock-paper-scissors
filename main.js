@@ -76,7 +76,7 @@ choiceDisplay.appendChild(computerDisplay);
 computerDisplay.textContent = `Computer:`;
 
 let playerChoice = '';
-let computerChoice ='';
+let computerChoice = '';
 
 function rockClick() {
     rockButton.style.backgroundColor = 'gray';
@@ -84,6 +84,7 @@ function rockClick() {
     paperButton.style.backgroundColor = 'white';
     scissorsButton.style.backgroundColor = 'white';
     playerChoice = 'rock';
+    playRound();
 };
 
 function paperClick() {
@@ -92,6 +93,7 @@ function paperClick() {
     rockButton.style.backgroundColor = 'white';
     scissorsButton.style.backgroundColor = 'white';
     playerChoice = 'paper';
+    playRound();
 };
 
 function scissorsClick() {
@@ -100,6 +102,7 @@ function scissorsClick() {
     rockButton.style.backgroundColor = "white";
     paperButton.style.backgroundColor = "white";
     playerChoice = 'scissors';
+    playRound();
 };
 
 function restartClick() {
@@ -116,6 +119,43 @@ function restartClick() {
     computerCount = 0;
     playerChoice = '';
     computerChoice = '';
+}
+
+function getComputerChoice() {
+    let option = Math.floor(Math.random() * 100);
+    if (option <= 33) {
+        return computerChoice = "rock";
+    }else if (option >= 34 && option <= 67) {
+        return computerChoice = "paper";
+    }else {
+        return computerChoice = "scissors";
+    }
+}
+
+function playRound(playerChoice, computerChoice) {
+    computerDisplay.textContent = `Computer: ${getComputerChoice()}`;
+    if (playerChoice === "rock" && computerChoice === "paper") {
+         alert("you lose");
+         return computerCount++;
+    }else if (playerChoice === "paper" && computerChoice === "scissors") {
+         alert("you lose");
+         return computerCount++;
+    }else if (playerChoice === "scissors" && computerChoice === "rock") {
+         alert("you lose");
+         return computerCount++;
+    }else  if (playerChoice === "rock" && computerChoice === "scissors") {
+         alert("you win");
+         return playerCount++;
+    }else if (playerChoice === "paper" && computerChoice === "rock") {
+         alert("you win");
+         return playerCount++;
+    }else if (playerChoice === "scissors" && computerChoice === "paper") {
+         alert("you win");
+         return playerCount++;
+    }else{
+            alert("its a tie");
+            return tieCount++;
+    }
 }
 
 rockButton.addEventListener('click', rockClick);
