@@ -49,3 +49,79 @@ computerScoreboard.style.justifyContent = "center";
 computerScoreboard.style.color = "red";
 
 
+let buttonContainer = document.querySelector(".buttonContainer");
+let rockButton = document.createElement("button");
+buttonContainer.appendChild(rockButton);
+rockButton.textContent = "Rock";
+
+let paperButton = document.createElement("button");
+buttonContainer.appendChild(paperButton);
+paperButton.textContent = "Paper";
+
+let scissorsButton = document.createElement("button");
+buttonContainer.appendChild(scissorsButton);
+scissorsButton.textContent = "Scissors";
+
+let restartButton = document.createElement("button");
+buttonContainer.appendChild(restartButton);
+restartButton.textContent = "Restart";
+
+let choiceDisplay = document.querySelector(".choiceDisplay");
+let playerDisplay = document.createElement("div");
+choiceDisplay.appendChild(playerDisplay);
+playerDisplay.textContent = `Player:`;
+
+let computerDisplay = document.createElement("div");
+choiceDisplay.appendChild(computerDisplay);
+computerDisplay.textContent = `Computer:`;
+
+let playerChoice = '';
+let computerChoice ='';
+
+function rockClick() {
+    rockButton.style.backgroundColor = 'gray';
+    playerDisplay.textContent = 'Player: Rock';
+    paperButton.style.backgroundColor = 'white';
+    scissorsButton.style.backgroundColor = 'white';
+    playerChoice = 'rock';
+};
+
+function paperClick() {
+    paperButton.style.backgroundColor = 'gray';
+    playerDisplay.textContent = 'Player: Paper';
+    rockButton.style.backgroundColor = 'white';
+    scissorsButton.style.backgroundColor = 'white';
+    playerChoice = 'paper';
+};
+
+function scissorsClick() {
+    scissorsButton.style.backgroundColor = 'gray';
+    playerDisplay.textContent = 'Player: Scissors';
+    rockButton.style.backgroundColor = "white";
+    paperButton.style.backgroundColor = "white";
+    playerChoice = 'scissors';
+};
+
+function restartClick() {
+    rockButton.style.backgroundColor = "white";
+    paperButton.style.backgroundColor = "white";
+    scissorsButton.style.backgroundColor = "white";
+    playerDisplay.textContent = 'Player:';
+    computerDisplay.textContent = 'Computer:';
+    playerCountText.textContent = 0;
+    tieCountText.textContent = 0;
+    computerCountText.textContent = 0;
+    playerCount = 0;
+    tieCount = 0;
+    computerCount = 0;
+    playerChoice = '';
+    computerChoice = '';
+}
+
+rockButton.addEventListener('click', rockClick);
+paperButton.addEventListener('click', paperClick);
+scissorsButton.addEventListener('click', scissorsClick);
+restartButton.addEventListener('click', restartClick);
+
+
+
